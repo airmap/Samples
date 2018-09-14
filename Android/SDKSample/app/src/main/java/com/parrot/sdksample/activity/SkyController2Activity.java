@@ -20,7 +20,7 @@ import com.parrot.sdksample.R;
 import com.parrot.sdksample.drone.SkyController2Drone;
 import com.parrot.sdksample.view.H264VideoView;
 
-public class SkyController2Activity extends AppCompatActivity {
+public class SkyController2Activity extends AirMapFlightActivity {
     private static final String TAG = "SkyController2Activity";
     private SkyController2Drone mSkyController2Drone;
 
@@ -209,8 +209,10 @@ public class SkyController2Activity extends AppCompatActivity {
                     mTakeOffLandBt.setText("Take off");
                     mTakeOffLandBt.setEnabled(true);
                     mDownloadBt.setEnabled(true);
+                    onLanding();
                     break;
                 case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_FLYING:
+                    onStartingTakeoff();
                 case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_HOVERING:
                     mTakeOffLandBt.setText("Land");
                     mTakeOffLandBt.setEnabled(true);
