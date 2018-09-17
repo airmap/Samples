@@ -50,6 +50,7 @@ public class SkyController2Activity extends AirMapFlightActivity {
         mSkyController2Drone = new SkyController2Drone(this, service);
         mSkyController2Drone.addListener(mSkyController2Listener);
 
+        createAircraft();
     }
 
     @Override
@@ -154,6 +155,11 @@ public class SkyController2Activity extends AirMapFlightActivity {
         mDroneConnectionLabel = (TextView) findViewById(R.id.droneConnectionLabel);
     }
 
+    @Override
+    public String getParrotAircraftName() {
+        return "Disco";
+    }
+
     private final SkyController2Drone.Listener mSkyController2Listener = new SkyController2Drone.Listener() {
         @Override
         public void onSkyController2ConnectionChanged(ARCONTROLLER_DEVICE_STATE_ENUM state) {
@@ -212,16 +218,24 @@ public class SkyController2Activity extends AirMapFlightActivity {
                     onLanding();
                     break;
                 case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_FLYING:
-                    onStartingTakeoff();
                 case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_HOVERING:
                     mTakeOffLandBt.setText("Land");
                     mTakeOffLandBt.setEnabled(true);
                     mDownloadBt.setEnabled(false);
                     break;
+                case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_USERTAKEOFF:
+                case ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_TAKINGOFF:
+                    onStartingTakeoff();
+                    break;
                 default:
                     mTakeOffLandBt.setEnabled(false);
                     mDownloadBt.setEnabled(false);
             }
+        }
+
+        @Override
+        public void onPositionChanged(double lat, double lng, double altitude) {
+            onPositionChanged(lat, lng, altitude);
         }
 
         @Override
