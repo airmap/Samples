@@ -80,6 +80,10 @@ Otherwise, if you want to use Android Studio build, first execute this command i
 
 Then, in Android Studio, open the settings.gradle located in `SDKSample/buildWithLocalSDK`.
 
+#### AirMap
+
+** Use the AirMapFlightActivity to automatically create and end flights upon takeoff and landing. See SkyController2Activity as an example.
+
 Native samples
 ---------------
 
