@@ -82,7 +82,7 @@ Then, in Android Studio, open the settings.gradle located in `SDKSample/buildWit
 
 #### AirMap:
 
-Use the AirMapFlightActivity to automatically create and end flights upon takeoff and landing. See [SkyController2Activity](https://github.com/airmap/Samples/blob/develop/Android/SDKSample/app/src/main/java/com/parrot/sdksample/activity/SkyController2Activity.java) as an example.<br/>
+Use the AirMapFlightActivity to automatically create and end flights upon takeoff and landing. See [SkyController2Activity](https://github.com/airmap/Samples/blob/develop/Android/SDKSample/app/src/main/java/com/parrot/sdksample/activity/SkyController2Activity.java) as an example. Requires an AirMap Developer account which can be created for free [here](https://dashboard.airmap.io/developer/). Then add your config file to the assets folder of the Android project.<br/>
 
 Native samples
 ---------------
